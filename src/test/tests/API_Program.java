@@ -57,7 +57,7 @@ public class API_Program {
             JSONObject jsonObject = new JSONObject(usertype);
             String ss= String.valueOf(usertype);
             String ss1=ss.substring(13,17);
-            System.out.println("ss1 : " +ss1 );
+            System.out.println("ss1 Inforamtion : " +ss1 );
 
             if(i==8){
 
