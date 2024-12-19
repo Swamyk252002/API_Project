@@ -17,13 +17,13 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.time.Duration;
 
-public class API_Program {
+public class API_Program123 {
     static WebDriver driver ;
     @BeforeClass
-    public static void Api_Program () throws IOException {
+    public static void API_Program123 () throws IOException {
         System.getProperty("webdriver.chrome.driver", "C:\\Users\\SwamyKalaveni\\OneDrive - SoftClouds LLC\\Desktop\\MACU\\Chrome Driver\\chromedriver-win64\\chromedriver.exe");
-        driver= new ChromeDriver();
-        // WebDriver driver = new ChromeDriver();
+         driver= new ChromeDriver();
+       // WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("https://www.flipkart.com/");
@@ -33,13 +33,14 @@ public class API_Program {
     public static void Api_Program1 () throws IOException {
 
         String apiUrl = "https://automationexercise.com/api/productsList";
-        URL u = new URL(apiUrl);
-        HttpURLConnection con = (HttpURLConnection) u.openConnection();
+        URL u=new URL(apiUrl);
+        HttpURLConnection con=(HttpURLConnection)u.openConnection();
         con.setRequestMethod("GET");
-        if (con.getResponseCode() >= 400) {
-            System.out.println("Wrong URL" + u + " : " + con.getResponseCode());
-        } else {
-            System.out.println("Right URL" + u + " : " + con.getResponseCode());
+        if(con.getResponseCode()>=400){
+            System.out.println("Wrong URL"+u+" : "+ con.getResponseCode());
+        }
+        else{
+            System.out.println("Right URL"+u+" : "+ con.getResponseCode());
         }
 
         BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
@@ -51,7 +52,7 @@ public class API_Program {
         in.close();
         //System.out.println("Response Content: " + response.toString());
 
-        JSONObject jsonobject = new JSONObject(response.toString());
+        JSONObject jsonobject=new JSONObject(response.toString());
         JSONArray products = jsonobject.getJSONArray("products");
 
         for (int i = 0; i < products.length(); i++) {
@@ -59,27 +60,29 @@ public class API_Program {
             JSONObject category = product.getJSONObject("category");
             JSONObject usertype = category.getJSONObject("usertype");
 
-            System.out.println("Response Product: " + product);
-            System.out.println("Response category: " + category);
-            System.out.println("Response usertype: " + usertype);
+            System.out.println("Response Product: " +product );
+            System.out.println("Response category: " +category );
+            System.out.println("Response usertype: " +usertype );
             JSONObject jsonObject = new JSONObject(usertype);
-            String ss = String.valueOf(usertype);
-            String ss1 = ss.substring(13, 17);
-            System.out.println("ss1 Info : " + ss1);
+            String ss= String.valueOf(usertype);
+            String ss1=ss.substring(13,17);
+            System.out.println("ss1 Info : " +ss1 );
 
-            if (i == 8) {
+            if(i==8){
 
-                driver.findElement(By.xpath("//input[@title='Search for Products, Brands and More']")).sendKeys(ss1 + " toys");
+                driver.findElement(By.xpath("//input[@title='Search for Products, Brands and More']")).sendKeys(ss1+" toys");
                 driver.findElement(By.xpath("//button[@type='submit']")).click();
 
+               // Reporter.log("for Testing");
             }
         }
-
+      //  driver.close();
+//
     }
     @AfterClass
     public void testSignout() throws InterruptedException {
         Thread.sleep(5000);
-        // Reporter.log("Starting test execution", true);
+       // Reporter.log("Starting test execution", true);
         driver.close();
     }
 

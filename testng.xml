@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite"><test verbose="2" preserve-order="true" name="C:/Users/SwamyKalaveni/OneDrive - SoftClouds LLC/Desktop/Mobile_Intellij/API_Testing/src/test/tests/API_Program.java">
-    <classes><class name="test.tests.API_Program">
-    <methods>
-        <include name="Api_Program"/>
-    </methods>
-    </class>
-    </classes>
-</test>
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/SwamyKalaveni/OneDrive - SoftClouds LLC/Desktop/Mobile_Intellij/API_Project/API_Project/src/test/java/test/tests/API_Program123.java">
+        <classes>
+            <class name="test.tests.API_Program123">
+                <methods>
+                    <include name="Api_Program1"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 </suite>
